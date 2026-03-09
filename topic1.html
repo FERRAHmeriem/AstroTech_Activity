@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AstroTech — Debating Timer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<main class="page-screen">
+
+  <!-- PAGE TITLE -->
+  <h1 class="page-main-title">Debating Timer</h1>
+
+  <!-- CONTENT CARD -->
+  <div class="content-card">
+
+    <!-- QUESTION -->
+    <div class="q-tag">DEBATE QUESTION</div>
+    <p class="debate-question" id="debate-question">Loading…</p>
+    <p class="q-hint">Discuss freely — there is no single correct answer.</p>
+
+    <!-- TIMER -->
+    <div class="timer-area">
+      <div class="timer-ring-wrap">
+        <svg class="ring-svg" viewBox="0 0 200 200">
+          <circle class="ring-track" cx="100" cy="100" r="88"/>
+          <circle class="ring-progress" id="ring-progress" cx="100" cy="100" r="88"/>
+        </svg>
+        <div class="timer-center">
+          <span class="timer-digits" id="timer-digits">03:00</span>
+          <span class="timer-status" id="timer-status">ready</span>
+        </div>
+      </div>
+
+      <div class="timer-controls">
+        <button class="home-btn" id="btn-start" onclick="Topic1.startTimer()">▶ START</button>
+        <button class="home-btn btn-pause-style" id="btn-pause" onclick="Topic1.pauseTimer()" style="display:none">⏸ PAUSE</button>
+        <button class="home-btn btn-reset-style" onclick="Topic1.resetTimer()">↺ RESET</button>
+      </div>
+
+      <p class="timer-msg" id="timer-msg"></p>
+    </div>
+
+    <!-- NEW QUESTION -->
+    <div class="new-q-row">
+      <button class="home-btn btn-ghost-style" onclick="Topic1.newQuestion()">🎲 New Question</button>
+    </div>
+
+  </div>
+
+  <!-- BACK -->
+  <a href="index.html" class="back-link">← Back to Selection</a>
+
+</main>
+
+<img src="./images/logo.svg" class="corner-logo" alt="logo"/>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AstroTech — Flip to the Question</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<main class="page-screen" id="quiz-main">
+
+  <!-- TOP LOGOS -->
+  <div class="page-top-logos">
+    <div class="astrotech-badge">
+      <img src="./images/logo.svg" alt="Astrotech" class="astrotech-icon"/>
+      <span class="astrotech-text">Astrotech</span>
+    </div>
+    <span class="nav-progress" id="nav-progress">Q 1 / 5</span>
+  </div>
+
+  <!-- PAGE TITLE -->
+  <h1 class="page-main-title">Flip to the Question</h1>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar-outer">
+    <div class="progress-bar-inner" id="progress-bar-inner"></div>
+  </div>
+
+  <!-- SCOREBOARD -->
+  <div class="scoreboard" id="scoreboard">
+    <div class="score-block p1">
+      <span class="score-name">Player 1</span>
+      <div class="score-checks" id="checks-p1"></div>
+    </div>
+    <div class="score-mid">
+      <span class="score-vs">VS</span>
+    </div>
+    <div class="score-block p2">
+      <span class="score-name">Player 2</span>
+      <div class="score-checks" id="checks-p2"></div>
+    </div>
+  </div>
+
+  <!-- QUESTION CARD -->
+  <div class="content-card" id="quiz-card">
+
+    <div class="quiz-q-num" id="quiz-q-num">Q1</div>
+    <p class="quiz-q-text" id="quiz-q-text">Loading…</p>
+
+    <!-- SHOW ANSWER BUTTON — visible by default -->
+    <button class="home-btn" id="btn-show-answer" onclick="Topic2.showAnswer()">🔍 Show Answer</button>
+
+    <!-- ANSWER PANEL — hidden by default via inline style -->
+    <div id="answer-panel" style="display:none;">
+      <div class="answer-label">CORRECT ANSWER</div>
+      <p class="answer-text" id="answer-text"></p>
+      <div class="extra-info" id="extra-info" style="display:none;"></div>
+
+      <!-- WINNER PICKER — visible inside answer panel -->
+      <div id="round-winner-picker">
+        <p class="picker-label">Who got it right?</p>
+        <div class="picker-btns">
+          <button class="home-btn pick-p1" id="pick-p1" onclick="Topic2.pickWinner(1)">Player 1</button>
+          <button class="home-btn pick-tie" id="pick-tie" onclick="Topic2.pickWinner(0)">Tie</button>
+          <button class="home-btn pick-p2" id="pick-p2" onclick="Topic2.pickWinner(2)">Player 2</button>
+        </div>
+      </div>
+
+      <!-- RESULT BANNER — hidden by default -->
+      <div id="round-result-banner" style="display:none;"></div>
+    </div>
+
+  </div>
+
+  <!-- NEXT BUTTON — hidden by default -->
+  <div id="quiz-nav-row" style="display:none;">
+    <button class="home-btn" id="btn-next" onclick="Topic2.next()">NEXT QUESTION →</button>
+  </div>
+
+  <!-- FINISHED SCREEN — hidden by default -->
+  <div id="finished-panel" style="display:none;">
+    <div class="finish-trophy" id="finish-trophy">🏆</div>
+    <h2 class="finish-title" id="finish-title">Game Over!</h2>
+    <p class="finish-winner" id="finish-winner"></p>
+    <div class="finish-scoreboard">
+      <div class="finish-score-item p1">
+        <span class="fs-name">Player 1</span>
+        <span class="fs-num" id="fs-p1">0</span>
+      </div>
+      <div class="finish-score-item tie">
+        <span class="fs-name">Ties</span>
+        <span class="fs-num" id="fs-tie">0</span>
+      </div>
+      <div class="finish-score-item p2">
+        <span class="fs-name">Player 2</span>
+        <span class="fs-num" id="fs-p2">0</span>
+      </div>
+    </div>
+    <div class="finish-actions">
+      <button class="home-btn" onclick="Topic2.restart()">↺ Play Again</button>
+      <a href="index.html" class="home-btn btn-ghost-style">← Home</a>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-link">← Back to Selection</a>
+
+</main>
+
+<img src="./images/logo.svg" class="corner-logo" alt="logo"/>
+<script src="app.js"></script>
+</body>
+</html>
