@@ -3,39 +3,160 @@
 ══════════════════════════════════════════════ */
 
 const DEBATE_QUESTIONS = [
-"Do you think Aliens exist ?",
-"Do you think space exploration is overrated? Or Underrated? ",
-"Should we spend more on space exploration or on maintaining our earth and eco-system ?",
-
+  "Do you think intelligent alien life exists somewhere in the universe? Why or why not?",
+  "If aliens exist, do you think they would be friendly or hostile toward humanity?",
+  "Would discovering alien life change how humans see themselves and their place in the universe?",
+  "Should we actively send signals into space to try to contact alien civilizations?",
+  "Do you think governments already have evidence of alien life and are hiding it from the public?",
+  "Is the universe too vast for us to be the only intelligent life?",
+  "Do you think space exploration is overrated — are the costs really worth the benefits?",
+  "Should private companies like SpaceX lead space exploration instead of government agencies?",
+  "Does space exploration inspire the next generation enough to justify its enormous cost?",
+  "Would you rather invest in deep-sea exploration or space exploration? Why?",
+  "Should we spend more money on space exploration or on fixing climate change on Earth?",
+  "Is it selfish to focus on colonizing Mars while millions suffer poverty on Earth?",
+  "Could technologies developed for space exploration help solve Earth's environmental problems?",
+  "Is it humanity's destiny to become a multi-planetary species, or should we focus on Earth first?",
+  "Should space colonization be humanity's top long-term priority as Earth's resources run out?"
 ];
 
-const QUIZ_QUESTIONS = [
+/* Full question bank — 5 are picked randomly each game */
+var QUIZ_BANK = [
   {
-    question: "How many planets are officially recognized in our Solar System? Can you name them all?",
-    answer: "8 planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
-    info: "In 2006 the IAU redefined 'planet', removing Pluto which became a 'dwarf planet'. The 8 planets orbit the Sun and have cleared the neighbourhood around their orbits."
+    question: "Who was the first Muslim to go to space?",
+    answer: "Prince Sultan bin Salman Al Saud",
+    info: "He is a Saudi prince and former Royal Saudi Air Force pilot who flew aboard the American STS-51-G Space Shuttle mission as a payload specialist."
   },
   {
-    question: "How far is Earth from the Sun, and how long does sunlight take to reach us?",
-    answer: "About 150 million km. Sunlight takes approximately 8 minutes and 20 seconds to reach Earth.",
-    info: "This average distance is defined as 1 Astronomical Unit (AU). Earth's orbit is slightly elliptical — ranging from 147 million km in January to 152 million km in July. Light travels at 299,792 km/s."
+    question: "Who was the first Muslim to go to space during Ramadan?",
+    answer: "Sheikh Muszaphar Shukor",
+    info: "He is a Malaysian doctor who launched to the International Space Station aboard Soyuz TMA-11 on 10 October 2007. Because of him, a fatwa was issued about fasting in space."
   },
   {
-    question: "Which planet in our Solar System has the most moons, and roughly how many does it have?",
-    answer: "Saturn holds the record with 146 confirmed moons (as of 2023).",
-    info: "Saturn's largest moon Titan is bigger than Mercury and has a thick nitrogen atmosphere with lakes of liquid methane. Jupiter comes second with 95 confirmed moons."
+    question: "When was the first telescope invented?",
+    answer: "1608",
+    info: "It was invented by Dutch spectacle maker Hans Lippershey in the Netherlands."
   },
   {
-    question: "What is the Fermi Paradox, and why is it relevant to the question of alien life?",
-    answer: "It is the contradiction between the high probability of alien civilizations existing and the complete lack of any contact or evidence.",
-    info: "Physicist Enrico Fermi asked: 'If intelligent aliens exist, where is everybody?' Given billions of Earth-like planets there should be many advanced civilizations. The 'Great Filter' hypothesis suggests intelligent life may be far rarer than we think."
+    question: "What galaxy do we live in?",
+    answer: "The Milky Way",
+    info: null
   },
   {
-    question: "Is space exploration worth its enormous cost, or should that money address Earth's problems?",
-    answer: "Both sides have strong arguments. Space budgets are typically less than 0.5% of national GDP, yet produce technologies used in daily life.",
-    info: "NASA's annual budget is roughly $25 billion — about 0.3% of the US federal budget. Space programs produced GPS, memory foam, water filters, and life-saving medical devices. Many scientists argue the return on investment far exceeds the initial cost."
+    question: "What is the size of the Milky Way in light years?",
+    answer: "Approximately 100,000 to 200,000 light-years across",
+    info: null
+  },
+  {
+    question: "Where are stars born?",
+    answer: "In a nebula (سديم)",
+    info: null
+  },
+  {
+    question: "What are rogue planets?",
+    answer: "Planets that left their solar systems and wander alone through space",
+    info: null
+  },
+  {
+    question: "How long does it take light to travel from the Sun to the Earth?",
+    answer: "Around 8 minutes and 20 seconds",
+    info: null
+  },
+  {
+    question: "How many stars are there in the Milky Way galaxy?",
+    answer: "Between 100 billion and 400 billion stars",
+    info: null
+  },
+  {
+    question: "⚠️ Trick question — How many stars are there in our Solar System?",
+    answer: "Only 1 — our Sun!",
+    info: null
+  },
+  {
+    question: "How many planets are there in our Solar System?",
+    answer: "8",
+    info: null
+  },
+  {
+    question: "Why do stars twinkle?",
+    answer: "Because their light is bent and distorted by the different layers of Earth's atmosphere as it travels to your eyes",
+    info: null
+  },
+  {
+    question: "Why is Mars called the Red Planet?",
+    answer: "Because its surface is covered in iron oxide (rust)",
+    info: null
+  },
+  {
+    question: "What is the hottest planet in our Solar System?",
+    answer: "Venus",
+    info: null
+  },
+  {
+    question: "Yes or No — Can you hear a loud explosion in space?",
+    answer: "No — space is a vacuum, and sound needs a medium like air or water to travel",
+    info: null
+  },
+  {
+    question: "Which dwarf planet was reclassified from a full planet in 2006?",
+    answer: "Pluto",
+    info: null
+  },
+  {
+    question: "What is the Great Red Spot on Jupiter?",
+    answer: "A giant storm that has been raging for hundreds of years — bigger than Earth",
+    info: null
+  },
+  {
+    question: "What do we call a star that has collapsed under its own gravity so that not even light can escape?",
+    answer: "A Black Hole",
+    info: null
+  },
+  {
+    question: "What is the nearest major spiral galaxy to our own Milky Way?",
+    answer: "The Andromeda Galaxy",
+    info: null
+  },
+  {
+    question: "Who wrote كتاب صور الكواكب (The Book of Fixed Stars)?",
+    answer: "Abd al-Rahman al-Sufi",
+    info: "He was a Persian astronomer who wrote his book in 964. It included textual descriptions and illustrations of stars — their positions, magnitudes (brightness), and color."
+  },
+  {
+    question: "Which scholar calculated the Earth's radius using trigonometry and the height of a mountain in modern-day Pakistan?",
+    answer: "Al-Biruni",
+    info: "His measurement was within 1% of the modern value — centuries before the technology we have today."
+  },
+  {
+    question: "Which astronomer and mathematician corrected the Greek calculations of the solar year and the Earth's tilt?",
+    answer: "Al-Battani",
+    info: "He was known as the 'Ptolemy of the Arabs', referring to Claudius Ptolemy, an ancient Greek astronomer."
+  },
+  {
+    question: "Which ancient instrument was refined by Islamic astronomers to tell time, find the Qibla direction, and calculate star positions?",
+    answer: "The Astrolabe",
+    info: "While originally Greek, Muslim engineers added complex plates and mathematical scales that made it the most essential tool for navigation and timekeeping for centuries."
+  },
+  {
+    question: "Which planet is closest to the Sun?",
+    answer: "Mercury",
+    info: null
   }
 ];
+
+/* Pick 5 random unique questions from the bank */
+function pickRandomQuestions(bank, count) {
+  var shuffled = bank.slice();
+  for (var i = shuffled.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
+  }
+  return shuffled.slice(0, count);
+}
+
+var QUIZ_QUESTIONS = pickRandomQuestions(QUIZ_BANK, 5);
 
 
 /* ══════════════════════════════════════════════
@@ -152,6 +273,8 @@ var Topic2 = (function () {
     if (!el('quiz-q-text')) return;
     current = 0;
     score   = { p1: 0, p2: 0, tie: 0 };
+    QUIZ_QUESTIONS = pickRandomQuestions(QUIZ_BANK, 5);
+    TOTAL = QUIZ_QUESTIONS.length;
     renderChecks();
     loadQuestion();
   }
@@ -287,9 +410,9 @@ var Topic2 = (function () {
     el('quiz-nav-row').style.display      = 'none';
 
     var title, winner;
-    if      (score.p1 > score.p2) { title = 'Winner!'; winner = 'Player 1 wins!'; }
-    else if (score.p2 > score.p1) { title = 'Winner!'; winner = 'Player 2 wins!'; }
-    else                           { title = 'Tie!';    winner = 'Both equally brilliant!'; }
+    if      (score.p1 > score.p2) { title = '🏆 Winner!'; winner = 'Player 1 wins!'; }
+    else if (score.p2 > score.p1) { title = '🏆 Winner!'; winner = 'Player 2 wins!'; }
+    else                           { title = '🌟 Tie!';    winner = 'Both equally brilliant!'; }
 
     el('finish-title').textContent  = title;
     el('finish-winner').textContent = winner;
@@ -306,6 +429,8 @@ var Topic2 = (function () {
     el('finished-panel').style.display = 'none';
     current = 0;
     score   = { p1: 0, p2: 0, tie: 0 };
+    QUIZ_QUESTIONS = pickRandomQuestions(QUIZ_BANK, 5);
+    TOTAL = QUIZ_QUESTIONS.length;
     renderChecks();
     loadQuestion();
   }
